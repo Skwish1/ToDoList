@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Лист задач</h1>
+        <div class="input">
+            <input type="text"
+            :placeholder="plHolText"
+            :value="inpValue"
+            @input="inpList"
+            @keypress.Enter="addTask"
+            >
+        </div>
+        <div class="btn">
+            <button class="add"
+            @click="addTask">Добавить</button>
+        </div>
+        <hr>
+        <div class="main-task">
+            <template v-for="(element, index) in allTasks">
+                <div class="task">
+                    <ul>
+                        <li class="task-item" id="lstor"> {{ element }}</li>
+                    </ul>
+                <div class="btn-task">
+                    <button class="compl"
+                    @click="completeTask"
+                    >Завершить</button>
+                    <button class="del"
+                    @click="removeTask"
+                    >Удалить</button>
+                </div>
+            </template>
+        </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="script.js"></script>
+</body>
+</html>
