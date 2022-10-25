@@ -93,3 +93,9 @@ display: flex;
     width: 110px;
     margin-right: 15px;
 }
+
+.empty {
+    margin-top: 15px;
+    justify-content: center;
+    display: flex;
+}

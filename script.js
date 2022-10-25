@@ -21,7 +21,7 @@ const App = {
     methods: {
         inpList(event) {
             this.inpValue = event.target.value
-            if(this.inpValue.length > 100) {
+            if(this.inpValue.length > 96) {
                 this.inpValue = ""
             }
         },
@@ -34,19 +34,15 @@ const App = {
                 this.saveTask()
             }
         },
-        completeTask(index) {
-            this.allTasks.splice(index, 1);
-            this.saveTask();
-            alert('На одно дело стало меньше :)')
-        },
-        removeTask(index) {
-            this.allTasks.splice(index, 1);
-            this.saveTask();
-        },
         saveTask() {
             localStorage.setItem('Задача', JSON.stringify(this.allTasks))
             JSON.parse(localStorage.getItem('Задача'))
-        }
+        },
+        saveTaskComplete() {
+            localStorage.setItem('Задача', JSON.stringify(this.allTasks))
+            JSON.parse(localStorage.getItem('Задача'))
+            alert('На одно дело стало меньше :)')
+        },
     }
 }
 

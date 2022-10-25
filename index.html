@@ -24,21 +24,31 @@
         </div>
         <hr>
         <div class="main-task">
-            <template v-for="(element, index) in allTasks">
-                <div class="task">
+            <template v-for="(element, i) in allTasks">
+                <div class="task"
+                v-if="allTasks.length > 0"
+                >
                     <ul>
-                        <li class="task-item" id="lstor"> {{ element }}</li>
+                        <li class="task-item"
+                        id="lstor"> 
+                        <strong>({{ i + 1 }})</strong> {{ element }}</li>
                     </ul>
-                <div class="btn-task">
-                    <button class="compl"
-                    @click="completeTask"
-                    >Завершить</button>
-                    <button class="del"
-                    @click="removeTask"
-                    >Удалить</button>
+                    <div class="btn-task">
+                        <button class="compl"
+                        @click="allTasks.splice(i, 1);
+                        saveTaskComplete();"
+                        >Завершить</button>
+                        <button class="del"
+                        @click="allTasks.splice(i, 1);
+                        saveTask()"
+                        >Удалить</button>
+                    </div>
                 </div>
             </template>
-        </div>
+            <div class="empty"
+            v-if="allTasks.length === 0"
+            >Ваш список задач пуст.
+            </div>
         </div>
     </div>
 
